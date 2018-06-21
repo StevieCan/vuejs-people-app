@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My App</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="main.css"></link>
+  <
+</head>
+<body>
+  <div id="vue-app">
+
+    <router-view></router-view>
+
+  </div>
+</body>
+</html>
+
+<template id="home-page">
+  <div class="vue-component">
+
+    <h1>NBA GOATS</h1>
+    <h2>GOAT LIST</h2>
+
+
+
+    <ul>
+      <li v-for="person in people"> 
+        <h2 v-on:click="toggleBio(person)">{{ person.name }}</h2>
+        <h3 v-if=" person.bioVisible">{{ person.bio }} <button v-on:click="deletePerson(person)">Delete</button></h3>
+      </li>
+    </ul>
+
+    <div>
+      Name: <input v-model="newPerson.name"> 
+      Biography: <input v-model="newPerson.bio">
+      BioVisible: <input v-model="newPerson.bioVisible">
+      <button v-on:click="addPerson()">Add Person</button>
+    </div>
+
+
+    <h4>Number of People: {{ people.length }}</h4>
+
+  </div>
+</template>
